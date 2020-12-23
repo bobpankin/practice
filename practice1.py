@@ -33,3 +33,16 @@ def validMountainArray(arr):
         return False
     
     return True
+
+def lengthOfLastWord(sentence):
+        """
+        Given a string s consists of some words separated by spaces, 
+        return the length of the last word in the string. If the last word does not exist, 
+        return 0.
+        A word is a maximal substring consisting of non-space characters only.
+        """
+        # if len(sentence) == 0:
+        #     return 0
+        
+        word_array = sentence.strip().split(" ")
+        return len(word_array[-1])
