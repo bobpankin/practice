@@ -34,15 +34,28 @@ def validMountainArray(arr):
     
     return True
 
+
 def lengthOfLastWord(sentence):
-        """
-        Given a string s consists of some words separated by spaces, 
-        return the length of the last word in the string. If the last word does not exist, 
-        return 0.
-        A word is a maximal substring consisting of non-space characters only.
-        """
-        # if len(sentence) == 0:
-        #     return 0
-        
-        word_array = sentence.strip().split(" ")
-        return len(word_array[-1])
+    """
+    Given a string s consists of some words separated by spaces, 
+    return the length of the last word in the string. If the last word does not exist, 
+    return 0.
+    A word is a maximal substring consisting of non-space characters only.
+    """
+    word_array = sentence.strip().split(" ")
+    return len(word_array[-1])
+
+def runningSum(nums):
+    """
+    :type nums: List[int]
+    :rtype: List[int]
+    Given an array nums. We define a running sum of an array as 
+    runningSum[i] = sum(nums[0]…nums[i]).
+    Return the running sum of nums.
+    """
+    running_sum_array = [nums[0]]
+    i = 1 
+    while i < len(nums):
+        running_sum_array.append(running_sum_array[i-1]+nums[i])
+        i+=1
+    return running_sum_array
