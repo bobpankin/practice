@@ -31,14 +31,19 @@ def thirdMax(nums):
 
 
 def canPlaceFlowers(flowerbed, n):
+    """You have a long flowerbed in which some of the plots are planted, and some are not. 
+    However, flowers cannot be planted in adjacent plots.
+    Given an integer array flowerbed containing 0's and 1's, where 0 means empty and 1 means 
+    not empty, and an integer n, return if n new flowers can be planted in the flowerbed 
+    without violating the no-adjacent-flowers rule. """
     plants = n
 
     if n == 0:
         return True
 
-    if n = 1 and len(flowerbed) == 1 and flowerbed[0] == 0:
+    if n == 1 and len(flowerbed) == 1 and flowerbed[0] == 0:
         return True
-        
+    
     if len(flowerbed) < (n*2-1) :
         return False
 
@@ -48,22 +53,16 @@ def canPlaceFlowers(flowerbed, n):
         if plants == 0:
             return True 
     i += 1
-
+    
     while i < len(flowerbed) - 2 :
         if (flowerbed[i-1] == 0 and flowerbed[i] == 0 and flowerbed[i+1] == 0):
-            flowerbed[i] = 1
             plants -= 1
             if plants == 0:
                 return True
+            flowerbed[i] = 1
         i += 1
-    if flowerbed[-3] == 0 and flowerbed[-2] == 0 and flowerbed[-1] == 0:
-        return True
-    return False
-
-
-
-
-
-
-
-
+        
+    if flowerbed[-1] == 0 and flowerbed[-2] == 0 :
+        plants -= 1
+        
+    return plants == 0
