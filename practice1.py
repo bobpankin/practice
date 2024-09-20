@@ -1,4 +1,5 @@
 def validMountainArray(arr):
+    #Practice
     """
     arr.length >= 3
     There exists some i with 0 < i < arr.length - 1 such that:
